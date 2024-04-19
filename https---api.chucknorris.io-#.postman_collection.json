@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "50ca1235-629b-4f9b-842b-0cfa7a3276ce",
+		"name": "https://api.chucknorris.io/#",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34049716"
+	},
+	"item": [
+		{
+			"name": "Random Joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL BASE}}/jokes/random",
+					"host": [
+						"{{URL BASE}}"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random Joke from Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL BASE}}/jokes/random?category=animal",
+					"host": [
+						"{{URL BASE}}"
+					],
+					"path": [
+						"jokes",
+						"random"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "animal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"respuesta 16\", function () {\r",
+							"const responseJson = pm.response.json();\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL BASE}}/jokes/categories",
+					"host": [
+						"{{URL BASE}}"
+					],
+					"path": [
+						"jokes",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL BASE",
+			"value": "https://api.chucknorris.io"
+		}
+	]
+}
